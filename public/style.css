@@ -1,0 +1,736 @@
+@font-face {
+    font-family: 'Gravity';
+    src: url('../fonts/Gravity-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gravity';
+    src: url('../fonts/Gravity-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Gravity';
+    src: url('../fonts/Gravity-Book.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gravity';
+    src: url('../fonts/Gravity-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gravity';
+    src: url('../fonts/Gravity-Ultralight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'Gravity', sans-serif;
+    font-weight: 400; 
+    margin: 0 auto;
+    padding: 0 120px; 
+    background-color: #FCFCFC;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 62px;
+    gap: 120px;
+}
+
+.logo img {
+    height: 50px; 
+}
+
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 60px; 
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 24px;
+    color: #d0683b;
+}
+
+.btn-primary{
+    width: 165px;
+    height: 40px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #d0683b;
+    border: 1px solid #d0683b;
+    border-radius: 15px;
+    width: 165px;
+    height: 40px;
+    background: none;
+}
+
+.map{
+    margin-top: 80px;
+}
+.map-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 20px; 
+}
+
+.main-text{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 48px;
+    color: #949494;
+    width: 517px;
+
+}
+
+span{
+    color: #d0683b;
+}
+
+.desc-text{
+    font-weight: 400;
+    font-size: 32px;
+    text-align: right;
+    color: #949494;
+    width: 581px;
+}
+.map-pins {
+    position: relative;
+    width: 100%; 
+}
+
+.map-img {
+    width: 100%; /* Карта занимает всю ширину родительского контейнера */
+    height: auto; 
+}
+
+.pins {
+    position: absolute; /* Абсолютное позиционирование, чтобы пины накладывались на карту */
+    top: 0;
+    left: 0;
+    width: 100%; /* Делаем ширину контейнера пинов равной карте */
+    height: 100%; /* Аналогично с высотой */
+}
+
+.pins img{
+    position: absolute; 
+    width: 50px; 
+    height: auto; 
+    transform: translate(-50%, -50%); 
+
+}
+.pin-northamerica {
+    top: 30%; 
+    left: 19%; 
+}
+
+.pin-europe{
+    top: 24%; 
+    left: 48%; 
+}
+
+.pin-southamerica{
+    top: 60%; 
+    left: 28%; 
+}
+
+.pin-asia{
+    top: 25%; 
+    left: 65%; 
+}
+
+.pin-africa{
+    top: 50%; 
+    left: 52%; 
+}
+
+.pin-australia{
+    top: 70%; 
+    left: 82%; 
+}
+
+.pin-iceland{
+    top: 10%; 
+    left: 38%; 
+}
+
+.tours-choice{
+    margin-top: 150px;
+}
+
+.tours-row{
+    display: flex;
+    flex-direction: row;
+    gap: 58px;
+    margin-top: 30px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+reviews {
+    margin-top: 150px;
+}
+
+.reviews-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-card {
+    border: 1px solid #d0683b;
+    border-radius: 20px;
+    width: 675px;
+    height: 253px;
+    padding-left: 46px;
+    padding-top: 56px;
+}
+
+.rev-text {
+    font-weight: 700;
+    font-size: 24px;
+    color: #bf836a;
+}
+
+.rev-author {
+    font-weight: 400;
+    font-size: 20px;
+    color: #bf836a;
+    width: 188px;
+}
+
+.author-arrow {
+    display: flex;
+    align-items: center;
+    gap: 310px;
+}
+
+.author-arrow img {
+    width: 81px;
+    height: 20px;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 24px; 
+    cursor: pointer;
+    color: #d0683b;
+}
+
+.arrow:hover {
+    color: #bf836a; 
+}
+.planning{
+    margin-top: 150px;
+}
+
+form{
+    width: 682px;
+    height: 674px;
+    border-radius: 10px;
+    background: #f1f1f1;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#tour-form{
+    width: 413px;
+    height: 532px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin: 12px;
+    align-items: start;
+}
+
+#tour-form div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#duration, #cost, #type, #continent, #language, #accommodation_type{
+    border-radius: 10px;
+    width: 209px;
+    height: 45px;
+}
+select{
+    width: 552px;
+    height: 90px;
+    border-radius: 10px;
+    background: #eae8e7;
+    border: none;
+    outline: none;
+
+    font-weight: 400;
+    font-size: 28px;
+    text-transform: lowercase;
+    color: #949494;
+    text-align: center;
+}
+
+
+.main-btn{
+    width: 418px;
+    height: 88px;
+    border-radius: 15px;
+    background: #d0683b;
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    color: #f5f5f5;
+    border: none;
+}
+
+.subscription{
+    margin-top: 175px;
+}
+
+.input-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+
+}
+
+.input-btn input{   
+    border: 1px solid #bf836a;
+    border-radius: 10px;
+    width: 635px;
+    height: 55px;
+    outline: none;
+}
+
+::placeholder{
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: lowercase;
+    color: #bf836a;
+    padding: 17px 0 15px 20px;
+}
+
+.sub{
+    border-radius: 10px;
+    border: none;
+    width: 180px;
+    height: 55px;
+    background: #d0683b;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: lowercase;
+    color: #fff;
+    font-family: 'Gravity';
+}
+
+footer {
+    width: 100vw;
+    height: 325px;
+    margin-top: 180px;
+    margin-left: calc(-1 * 120px); 
+    margin-right: calc(-1 * 120px); 
+    background: #bf816a; 
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 469px;
+}
+
+.txt{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.txt p{
+    font-weight: 400;
+    font-size: 24px;
+    color: #f1f1f1;
+}
+
+.card-header{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: lowercase;
+    color: #bf836a;
+    text-align: left;
+}
+
+#email, #password, #name, #password-confirm{
+    border: 1px solid #d0683b;
+    border-radius: 20px;
+    width: 300px;
+    height: 50px;
+    outline: none;
+}
+
+@media screen and (max-width:1024px){
+    body{
+        padding: 0 80px;
+    }
+
+    nav ul{
+        gap: 20px;
+    }
+
+    nav a{
+        font-size: 20px;
+    }
+
+    header{
+        gap: 60px;
+    }
+
+    .logo img{
+        width: 124px;
+        height: 33px;
+    }
+
+    .main-text{
+        font-size: 36px;
+    }
+    
+    .desc-text{
+        font-size: 24px;
+    }
+    .tours-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        margin-left: calc(-1 * 80px); 
+        margin-right: calc(-1 * 80px); 
+        gap: 80px;  
+    }
+
+    .txt p{
+        font-size: 20px;
+    }
+
+    form{
+        width: 90%;
+    }
+
+    select{
+        width: 90%;
+    }
+
+    .author-arrow{
+        gap: 250px;
+    }
+
+    .pins img{
+        width: 30px;
+        height: 40px;
+    }
+
+   
+}
+
+
+@media screen and (max-width:768px){
+    body{
+        padding: 0 20px;
+    }
+    nav{
+        display: none;
+    }
+
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-text{
+        font-size: 20px;
+        width: 228px;
+    }
+    
+    .desc-text{
+        font-size: 16px;
+        width: 204px;
+        text-align: left;
+    }
+
+    .map-text{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        align-items: start;
+        gap: 0px;
+    }
+
+    .pins img{
+        width: 20px;
+        height: 30px;
+    }
+
+    .tours-row img{
+        width: 80%;
+    }
+
+    .tours-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .review-card{
+        width: 266px;
+        height: 181px;
+        padding-top: 39px;
+        padding-left: 19px;
+    }
+
+    .rev-text, .rev-author{
+        font-size: 14px;
+    }
+
+    .author-arrow {
+        gap: 20px;
+    }
+    .author-arrow img{
+        width: 53px;
+        height: 19px;
+
+    }
+
+    form{
+        height: 480px;   
+    }
+
+    .main-btn{
+        width: 205px;
+        height: 43px;
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+        color: #f5f5f5;
+    }
+
+    select{
+        font-size: 14px;
+        height: 65px;
+    }
+
+    .subscription{
+        margin-top: 60px;
+    }
+
+    .input-btn input{
+        width: 209px;
+        height: 38px;
+    }
+
+    ::placeholder{
+        font-size: 14px;
+
+    }
+
+    .input-btn button{
+        width: 124px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    footer{
+        margin-top: 80px;
+        margin-left: calc(-1 * 20px); 
+        margin-right: calc(-1 * 20px); 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .txt{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+.card-tour{
+    width: 318px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.card-image{
+    border-radius: 15px 15px 0 0;
+    width: 318px;
+    height: 285px;
+}
+
+.card-title{
+    font-weight: 700;
+    font-size: 20px;
+    color: #7b7b7b;
+    text-align: left;
+}
+
+.price{
+    font-weight: 700;
+    font-size: 20px;
+    color: #7b7b7b;
+}
+
+.row-des{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 94px;
+}
+
+.duration{
+    font-weight: 350;
+    font-size: 14px;
+    color: #7b7b7b;
+}
+
+.tour-description{
+    font-weight: 350;
+    font-size: 14px;
+    color: #7b7b7b;
+    text-align: left;
+}
+
+
+.tour-name-h1{
+    font-weight: 700;
+    color: #d0683b;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.tour-description-c{
+    font-weight: 400;
+    color: #949494;
+    font-size: 24px;
+    text-align: left;
+}
+
+.tour-details-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-detail{
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 103px;
+}
+
+.label2{
+    font-weight: 700;
+    font-size: 24px;
+    color: #bf836a;
+}
+
+.number-input{
+    border-radius: 10px;
+    outline: none;
+    border-color: #d0683b;
+}
+
+.review-name{
+    width: 375px;
+    height: 81px;
+    border: 1px solid #d0683b;
+    border-radius: 20px;
+}
+
+.table-responsive {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-responsive th,
+.table-responsive td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/* Стили для адаптивности */
+@media (max-width: 1300px) {
+    .table-responsive,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+
+    .table-responsive tr {
+        margin-bottom: 1rem; /* Отступ между строками */
+    }
+
+    .table-responsive td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%; /* Создание пространства для заголовка */
+    }
+
+    .table-responsive td::before {
+        content: attr(data-label); /* Используем data-label для отображения заголовка */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+}
