@@ -160,31 +160,30 @@ class TourController extends Controller
     }
 
     public function book(Request $request, Tour $tour)
-{
-    $request->validate([
-        'number_of_people' => 'required|integer|min:1|max:' . $tour->max_people,
-        'start_date' => 'required|date',
-        'end_date' => 'required|date|after:start_date',
-    ]);
-
-    // Создаем бронирование
-    Booking::create([
-        'user_id' => Auth::id(),
-        'tour_id' => $tour->id,
-        'number_of_people' => $request->number_of_people,
-        'start_date' => $request->start_date,
-        'end_date' => $request->end_date,
-    ]);
-
-    // Уменьшаем количество доступных мест
-    $tour->max_people -= $request->number_of_people;
-
-    // Добавьте логирование для проверки
-    $tour->save();
-
-
-    return redirect()->route('tours.show', $tour)->with('success', 'Тур успешно забронирован!');
-}
+    {
+        $request->validate([
+            'number_of_people' => 'required|integer|min:1|max:' . $tour->max_people,
+            'start_date' => 'required|date',
+        ]);
+    
+        // Создаем бронирование
+        $booking = Booking::create([
+            'user_id' => Auth::id(),
+            'tour_id' => $tour->id,
+            'number_of_people' => $request->number_of_people,
+            'start_date' => $request->start_date,
+        ]);
+        
+        if ($booking) {
+            $tour->max_people -= $request->number_of_people;
+            $tour->save();
+        } else {
+            return redirect()->back()->with('error', 'Ошибка при бронировании тура.');
+        }
+    
+        return redirect()->route('tours.show', $tour)->with('success', 'Тур успешно забронирован!');
+    }
+    
 
     
     

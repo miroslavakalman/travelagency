@@ -9,7 +9,7 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
     <a href="{{ route('admin.tours.create') }}" class="btn btn-primary">Добавить тур</a>
-    <table class="table-responsive">
+    <table class="table-responsive" style="margin-top: 40px;">
     <thead>
         <tr>
             <th>Название</th>

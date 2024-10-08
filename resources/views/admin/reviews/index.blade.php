@@ -31,7 +31,7 @@
                 <td data-label="Текст отзыва">{{ $review->text }}</td>
                 <td data-label="Дата создания">{{ $review->created_at->format('d.m.Y H:i') }}</td>
                 <td data-label="Действия">
-                    <form action="{{ route('reviews.destroy', $review) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('admin.reviews.destroy', $review) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить этот отзыв?')">Удалить</button>

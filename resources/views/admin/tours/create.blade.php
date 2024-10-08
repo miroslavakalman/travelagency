@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('admin.tours.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.tours.store') }}" method="POST" enctype="multipart/form-data" style="margin-top: 120px; background: none;">
     @csrf
     <div>
         <label for="name">Название тура</label>

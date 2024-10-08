@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Редактировать тур</h1>
-    <form action="{{ route('admin.tours.update', $tour) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.tours.update', $tour) }}" method="POST" enctype="multipart/form-data" style="margin-top: 240px; background: none;">
         @csrf
         @method('PUT')
         <div>

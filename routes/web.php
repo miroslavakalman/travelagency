@@ -15,16 +15,23 @@ Route::post('/bookings/{id}/cancel', [UserProfileController::class, 'cancelBooki
 Route::post('/bookings/{id}/update', [UserProfileController::class, 'updateBooking'])->name('bookings.update');
 
 Route::get('/profile', [UserProfileController::class, 'index'])->name('profile.index')->middleware('auth');
-
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('reviews', ReviewController::class);
+    Route::resource('reviews', ReviewController::class)->names([
+        'index' => 'admin.reviews.index',
+        'create' => 'admin.reviews.create',
+        'store' => 'admin.reviews.store',
+        'edit' => 'admin.reviews.edit',
+        'update' => 'admin.reviews.update',
+        'destroy' => 'admin.reviews.destroy',
+    ]);
 });
 
+
 // Для отображения всех туров (пользовательская часть)
-Route::get('/tours/show', [TourController::class, 'showAll'])->name('tours.showAll');
+Route::get('/tours/show', action: [TourController::class, 'showAll'])->name('tours.showAll');
 
 // Для отображения всех туров (дополнительная логика)
-Route::get('/tours/index', action: [TourController::class, 'index'])->name('tours.index'); 
+Route::get('/tours/index', [TourController::class, 'index'])->name('tours.index');
 
 // Для отображения конкретного тура
 Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
@@ -35,6 +42,9 @@ Route::post('/tours/{tour}/book', [TourController::class, 'book'])->name('tours.
 Route::post('/tours/{tour}/review', [TourController::class, 'storeReview'])->name('tours.review');
 
 // Административные маршруты
+Route::get('/admin', function () {
+    return view('admin/index');
+});
 Route::get('/admin/tours', [TourController::class, 'adminIndex'])->name('admin.tours.index');
 Route::get('/admin/tours/create', [TourController::class, 'create'])->name('admin.tours.create');
 Route::post('/admin/tours', [TourController::class, 'store'])->name('admin.tours.store');

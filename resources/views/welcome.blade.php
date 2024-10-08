@@ -15,7 +15,6 @@
                 <img src="{{ asset('img/pin-xl.png') }}" alt="Пин Азии" class="pin-asia" id="pin-asia" data-continent="Азия">
                 <img src="{{ asset('img/pin-xl.png') }}" alt="Пин Австралии" class="pin-australia" id="pin-australia" data-continent="Австралия">
                 <img src="{{ asset('img/pin-xl.png') }}" alt="Пин Африки" class="pin-africa" id="pin-africa" data-continent="Африка">
-                <img src="{{ asset('img/pin-xl.png') }}" alt="Пин Исландии" class="pin-iceland" id="pin-iceland" data-continent="Исландия">
             </div>
             </div>
         </div>
