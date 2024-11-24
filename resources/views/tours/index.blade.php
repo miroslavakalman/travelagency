@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="map-text" style="margin-top: 85px;">
-    <div class="main-text">ТУРЫ В <span>ГОРЫ</span></div>
+    <div class="main-text">ТУРЫ ПО <span>МИРУ</span></div>
     <div class="desc-text">Запланируйте своё идеальное путешествие за пару кликов</div>
 </div>
 
@@ -17,23 +17,16 @@
         </select>
     </div>
     <div>
-        <label for="cost">Максимальная стоимость:</label>
-        <select name="cost" id="cost">
-            <option value="">Все</option>
-            @foreach ($costs as $cost)
-                <option value="{{ $cost }}" {{ request('cost') == $cost ? 'selected' : '' }}>{{ $cost }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div>
-        <label for="duration">Максимальная длительность:</label>
-        <select name="duration" id="duration">
-            <option value="">Все</option>
-            @foreach ($durations as $duration)
-                <option value="{{ $duration }}" {{ request('duration') == $duration ? 'selected' : '' }}>{{ $duration }}</option>
-            @endforeach
-        </select>
-    </div>
+    <label for="sort_by">Сортировать по:</label>
+    <select name="sort_by" id="sort_by">
+        <option value="">Без сортировки</option>
+        <option value="cost_asc" {{ request('sort_by') == 'cost_asc' ? 'selected' : '' }}>Цена (по возрастанию)</option>
+        <option value="cost_desc" {{ request('sort_by') == 'cost_desc' ? 'selected' : '' }}>Цена (по убыванию)</option>
+        <option value="duration_asc" {{ request('sort_by') == 'duration_asc' ? 'selected' : '' }}>Длительность (по возрастанию)</option>
+        <option value="duration_desc" {{ request('sort_by') == 'duration_desc' ? 'selected' : '' }}>Длительность (по убыванию)</option>
+    </select>
+</div>
+
     <div>
         <label for="continent">Континент:</label>
         <select name="continent" id="continent">
@@ -99,7 +92,7 @@
         width: 100%;
         justify-content: center;
         gap: 40px;
-        margin-bottom: 20px; /* Отступ между рядами */
+        margin-bottom: 20px; 
     }
 
     @media screen and (max-width:835px){
@@ -125,7 +118,7 @@
         overflow: hidden;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s;
-        margin: 10px; /* Отступ между карточками */
+        margin: 10px; 
     }
     .card:hover {
         transform: scale(1.05);

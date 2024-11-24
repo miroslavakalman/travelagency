@@ -67,11 +67,11 @@
             <option value="australia">Австралия</option>
         </select>
         <select name="date" id="date">
-            <option value="">выберите дату поездки</option>
-            <option value="2024-10-10">10 октября 2024</option>
-            <option value="2024-11-15">15 ноября 2024</option>
-            <option value="2024-12-20">20 декабря 2024</option>
-            <option value="2025-01-05">5 января 2025</option>
+            <option value="">выберите месяц поездки</option>
+            <option value="2024-10-10">декабрь</option>
+            <option value="2024-11-15">январь</option>
+            <option value="2024-12-20">февраль</option>
+            <option value="2025-01-05">март</option>
         </select>
         <select name="travelers" id="travelers">
             <option value="">количество путешественников</option>
@@ -164,23 +164,18 @@ document.getElementById('get-offers').addEventListener('click', function() {
     const travelers = document.getElementById('travelers').value;
     const budget = document.getElementById('budget').value;
 
-    // Проверяем, что все поля заполнены
     if (!destination || !date || !travelers || !budget) {
         alert('Пожалуйста, заполните все поля!');
         return;
     }
 
-    // Скрываем форму и показываем модалку для номера телефона
     document.getElementById('trip-planner-form').style.display = 'none';
     document.getElementById('phone-modal').style.display = 'block';
 });
 
-// Отправка номера телефона
 document.getElementById('submit-phone').addEventListener('click', function() {
     const phone = document.getElementById('phone-input').value;
 
-    // Здесь вы можете отправить данные на сервер
-    // Например, с помощью fetch API или AJAX
     fetch('/submit-trip', {
         method: 'POST',
         headers: {
@@ -197,7 +192,6 @@ document.getElementById('submit-phone').addEventListener('click', function() {
     })
     .then(response => response.json())
     .then(data => {
-        // Если отправка успешна
         document.getElementById('phone-modal').style.display = 'none';
         document.getElementById('thank-you-modal').style.display = 'block';
     })
@@ -214,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pin.addEventListener('click', function() {
             const continent = this.getAttribute('data-continent');
             const url = `/tours/show?continent=${encodeURIComponent(continent)}`;
-            window.location.href = url; // Перенаправление на новый URL
+            window.location.href = url; 
         });
     });
 });

@@ -69,8 +69,8 @@ class TourController extends Controller
     public function update(Request $request, Tour $tour)
     {
         $request->validate([
-            'name' => 'required|string|max:255', // Добавлено
-            'description' => 'required|string|max:1000', // Добавлено
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000', 
             'type' => 'required|string|max:255',
             'cost' => 'required|numeric',
             'duration' => 'required|integer',
@@ -87,7 +87,6 @@ class TourController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image_path')) {
-            // Удаляем старое изображение, если оно есть
             if ($tour->image_path) {
                 File::delete(public_path($tour->image_path));
             }
@@ -111,39 +110,45 @@ class TourController extends Controller
     {
         $query = Tour::query();
 
-        // Фильтрация по типу
         if ($request->filled('type')) {
             $query->where('type', 'like', '%' . $request->type . '%');
         }
 
-        // Фильтрация по стоимости
-        if ($request->filled('cost')) {
-            $query->where('cost', '<=', $request->cost);
-        }
-
-        // Фильтрация по длительности
-        if ($request->filled('duration')) {
-            $query->where('duration', '<=', $request->duration);
-        }
-
-        // Фильтрация по континенту
+      
+     
         if ($request->filled('continent')) {
             $query->where('continent', 'like', '%' . $request->continent . '%');
         }
 
-        // Фильтрация по языку
+        
         if ($request->filled('language')) {
             $query->where('language', 'like', '%' . $request->language . '%');
         }
 
-        // Фильтрация по типу проживания
+  
         if ($request->filled('accommodation_type')) {
             $query->where('accommodation_type', 'like', '%' . $request->accommodation_type . '%');
         }
 
+        if ($request->filled('sort_by')) {
+            switch ($request->sort_by) {
+                case 'cost_asc':
+                    $query->orderBy('cost', 'asc');
+                    break;
+                case 'cost_desc':
+                    $query->orderBy('cost', 'desc');
+                    break;
+                case 'duration_asc':
+                    $query->orderBy('duration', 'asc');
+                    break;
+                case 'duration_desc':
+                    $query->orderBy('duration', 'desc');
+                    break;
+            }
+        }
         $tours = $query->get();
 
-        // Получение уникальных значений для фильтров
+    
         $types = Tour::distinct()->pluck('type');
         $costs = Tour::distinct()->pluck('cost');
         $durations = Tour::distinct()->pluck('duration');
@@ -166,7 +171,6 @@ class TourController extends Controller
             'start_date' => 'required|date',
         ]);
     
-        // Создаем бронирование
         $booking = Booking::create([
             'user_id' => Auth::id(),
             'tour_id' => $tour->id,
@@ -195,7 +199,6 @@ public function storeReview(Request $request, Tour $tour)
         'user_name' => 'required|string|max:255',
     ]);
 
-    // Сохранение отзыва в базе данных
     $tour->reviews()->create([
         'text' => $request->text,
         'user_name' => $request->user_name,
